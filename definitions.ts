@@ -2,35 +2,33 @@
  * This is a sample .ts file. "ts" stands for "Tag Space". This tag space is able to describe the policies required
  * by HIPAA, Part2, FERPA, PPRA and the Government Records.
  * - Authors: Latanya Sweeney, Alexandra Wood, David O'Brien, Michael Bar-Sinai, clinical students at Berkman Center.
- *>
+*>
 
-DataTags [This is the top level tag,
-          used (by the tagging system) to describe the properties of the dataset]:
-					consists of Code, Handling, Legal, Assertions. <-- Near future version of TS will specify which compound tag is to top level tag.
-                                                         <--   For now, we go with a hard coded "DataTags".
+DepositData [This is the top level tag,
+             used (by the tagging system) to describe the properties of the dataset]:
+             consists of Code, Handling, Legal, Assertions.
 
 Legal: consists of EducationRecords, <*HIPAA and more*> MedicalRecords, GovernmentRecords, ContractOrPolicy.
 Assertions: consists of DataType, IP, Identity.
 
 IP [Assertions pretaining to intellectual property]: TODO.
 
-Code [This tag is actually going away soon, to become inferred by compliace sub-spaces (long story, read the paper when it's out)]: one of
-	blue    [Non-confidential information that can be stored and shared freely.],
-	green   [Potentially identifiable but not harmful personal information, shared with some access control.],
-	yellow  [Potentially harmful personal information, shared with loosely verified and/or approved recipients.],
-	orange  [May include sensitive, identifiable personal information, shared with verified and/or approved recipients under agreement.],
-	red     [Very sensitive identifiable personal information, shared with strong verification of approved recipients under signed agreement.],
-	crimson [Requires explicit permission for each transaction, using strong verification of approved recipients under signed agreement.]
+Code [This tag is actually going away soon, to become inferred by compliace sub-spaces]: one of
+	blue    [Non-confidential information that can be stored and shared freely],
+	green   [Potentially identifiable but not harmful personal information, shared with some access control],
+	yellow  [Potentially harmful personal information, shared with loosely verified and/or approved recipients],
+	orange  [May include sensitive, identifiable personal information, shared with verified and/or approved recipients under agreement],
+	red     [Very sensitive identifiable personal information, shared with strong verification of approved recipients under signed agreement],
+	crimson [Requires explicit permission for each transaction, using strong verification of approved recipients under signed agreement]
 .
 
 Handling [practical and applicable aspects of data handling]: consists of
  Storage, Transit, Authentication,
  auth,
  DUA, Acceptance,
- Approval
- .
+ Approval.
 
- Storage [The way data are stored on the server.]: one of
+Storage [The way data are stored on the server]: one of
    clear [Not encrypted at all],
    serverEncrypt [Encryption on the server, "at rest". Attacker cannot use the data by getting the files from the file system],
    clientEncrypt [Encryption on the client side. Data obtained from the server (e.g. buy data breach or subpeona)
@@ -38,16 +36,16 @@ Handling [practical and applicable aspects of data handling]: consists of
    doubleEncrypt [Encryption on the client, and then on the server. Both passwords are required in order to make use of the data].
 
 Transit [How the dataset should be transmitted]: one of
-	clear         [ No encryption involved.],
-	encrypt       [ Single encryption.],
-	doubleEncrypt [ Encryption with two keys, which may be held by different parties. ]
+	clear         [ No encryption involved],
+	encrypt       [ Single encryption],
+	doubleEncrypt [ Encryption with two keys, which may be held by different parties ]
 .
 
 Authentication: some of
-	None     [Available to anonymous individuals.],
-	Email    [Available to individuals with verified email address.],
-	OAuth    [Available to individuals with verified online identity or a mobile phone.],
-	Password [Available to individuals having a password accounts on system.]
+	None     [Available to anonymous individuals],
+	Email    [Available to individuals with verified email address],
+	OAuth    [Available to individuals with verified online identity or a mobile phone],
+	Password [Available to individuals having a password accounts on system]
 .
 
 DataType: consists of
@@ -100,20 +98,26 @@ Identity: one of
 
 Auditing: one of NotNeeded, Yearly, Monthly.
 
-MedicalRecords: consists of HIPAA, Part2.
+MedicalRecords: consists of HIPAA, Part2, CuresAct.
 HIPAA: some of
-		waiver
-			[The data contain identifiable health information disclosed with waiver or alteration of authorization by an IRB or Privacy Board],
-		authorization
-			[The data contain identifiable health information disclosed for limited purposes with patient authorization],
-		safeHarborDeidentified
-			[The data contain health information that have been deidentified according to the HIPAA Privacy Rule safe harbor standard],
-		expertDetermination
-			[The data contain health information that have been deidentified using the HIPAA Privacy Rule expert determination method],
-		limitedDataset
-			[The data contain identifiable health information disclosed as a limited data set under the HIPAA Privacy Rule],
-		businessAssociateContract
-			[The data contain identifiable health information disclosed pursuant to a HIPAA business associate contract].
+		waiver [
+      The data contain identifiable health information disclosed with waiver or alteration of authorization by an IRB or Privacy Board
+    ],
+		authorization [
+      The data contain identifiable health information disclosed for limited purposes with patient authorization
+    ],
+		safeHarborDeidentified [
+      The data contain health information that have been deidentified according to the HIPAA Privacy Rule safe harbor standard
+    ],
+		expertDetermination [
+      The data contain health information that have been deidentified using the HIPAA Privacy Rule expert determination method
+    ],
+		limitedDataset [
+      The data contain identifiable health information disclosed as a limited data set under the HIPAA Privacy Rule
+    ],
+		businessAssociateContract [
+      The data contain identifiable health information disclosed pursuant to a HIPAA business associate contract
+    ].
 
 Part2: one of
 	deidentified [
@@ -128,6 +132,9 @@ Part2: one of
 	scientificResearch [
 		The data contain identifiable information about substance abuse treatment from records disclosed under the scientific research exception to the substance abuse confidentiality regulations
 	].
+
+CuresAct [The 21st Century Cures Act]: some of
+  certificateRequired.
 
 EducationRecords: consists of FERPA, PPRA.
 FERPA: some of
@@ -165,5 +172,5 @@ ESRA: some of restricted, public.
 CIPSEA: some of deidentified, identifiable.
 PrivacyAct: some of deidentified, identifiable.
 ContractOrPolicy: one of
-	no  [ Use or sharing of the data is not restricted by a contract or policy ],
-	yes [ Use or sharing of the data is restricted by a contract or policy     ].
+	no  [Use or sharing of the data is not restricted by a contract or policy],
+	yes [Use or sharing of the data is restricted by a contract or policy    ].

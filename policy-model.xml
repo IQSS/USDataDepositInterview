@@ -1,20 +1,52 @@
 <policy-model>
   <title>Data Deposit Interview</title>
-  <version>0.5</version>
-  <date>2016-05-23</date>
+  <version>0.6</version>
   <authors>
-    <group>
+    <group url="https://privacytools.seas.harvard.edu/">
       <name>Privacy Tools for Sharing Research Data</name>
     </group>
   </authors>
   <keywords>privacy, legislation, Privacy Tools Project</keywords>
   <model answers-order="yes-first">
-    <space root="DataTags">definitions.ts</space>
+    <space root="DepositData">definitions.ts</space>
     <graph>questionnaire.dg</graph>
   </model>
   <references>
     <reference>
-      Project still in bet - NOT for real world use.
+      Project still in beta - NOT for real world use.
+    </reference>
+    <reference>
+      The Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule 45 C.F.R. Part 160 and Subparts A and E of Part 164, which regulates the use and disclosure of protected health information held by covered entities such as health care providers
+    </reference>
+    <reference>
+      The substance abuse confidentiality regulations, 42 C.F.R. Part 2 which protect the confidentiality of the medical records of patients seeking treatment for alcohol or drug abuse
+    </reference>
+    <reference>
+      The Family Educational Rights and Privacy Act (FERPA), 20 U.S.C. § 1232g, which safeguards student records maintained by an educational agency or institution
+    </reference>
+    <reference>
+      The Protection of Pupil Rights Amendment (PPRA), 20 U.S.C. § 1232h, which establishes privacy-related procedures for certain surveys, analyses, and evaluations funded by the US Department of Education
+    </reference>
+    <reference>
+      The Education Sciences Reform Act of 2002, 20 U.S.C. § 9573, which restricts the collection, use, and dissemination of education data in research conducted by the Institute of Education Sciences
+    </reference>
+    <reference>
+      The Privacy Act of 1974, 5 U.S.C. § 552a, which establishes fair information practices for protecting personally identifiable records maintained by federal agencies
+    </reference>
+    <reference>
+      The Confidential Information Protect and Statistical Efficiency Act (CIPSEA), 44 U.S.C. § 3501 note, which protects confidential data collected by U.S. statistical agencies
+    </reference>
+    <reference>
+      Title 13 of the U.S. Code, which protects the confidentiality of Census Bureau data
+    </reference>
+    <reference>
+      The Driver’s Privacy Protection Act (DPPA), 18 U.S.C. §§ 2721-2725, which restricts the disclosure of personal information from state department of motor vehicle records
+    </reference>
+    <reference url="https://www.congress.gov/114/plaws/publ255/PLAW-114publ255.pdf">
+      21st Century Cures Act, SEC. 2012. PRIVACY PROTECTION FOR HUMAN RESEARCH
+    </reference>
+    <reference url="https://grants.nih.gov/grants/guide/notice-files/NOT-OD-17-109.html">
+      Notice of Changes to NIH Policy for Issuing Certificates of Confidentiality (Notice Number: NOT-OD-17-109), Effective Date: October 1, 2017
     </reference>
   </references>
 </policy-model>

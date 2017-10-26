@@ -24,7 +24,7 @@
         									{text: Were the data maintained by the Department of Veterans Affairs either shared with the patients’ consent for the purposes of scientific research, or shared without consent but in connection with a medical emergency or public health activity related to HIV?}
                           {answers:
                             {no: [reject: reject data and flag for review; possible violation of 38 U.S.C. 4132 due to the release of VA medical records without a valid exception.]}
-          									{yes: [>XXXs< set: Part2=veteransMedicalData; Code=orange; Harm=civil; Transit=encrypt; Effort=identifiable] }
+          									{yes: [set: Part2=veteransMedicalData; Code=orange; Harm=civil; Transit=encrypt; Effort=identifiable] }
                           }]}
       								{no:
       									[>MR5< ask:
@@ -41,7 +41,24 @@
                         }]}}] <-- MR5
       		}}]}}] <-- MR3
 }}]}}] <-- MR2
-
+[>MR-Cures-1< ask:
+  {text: Was the research funded, at least in part, but the federal government?}
+  {answers:
+    	{yes:
+				[>MR-Cures-2< ask:
+				  {text: Does the research involve any of the covered activities?}
+				  {answers:
+						{yes: [>MR-Cures-3< ask:
+						  {text: Does the research collected covered details?}
+						  {answers:
+						    	{yes: [set: CuresAct += certificateRequired]}
+						  }
+						]}
+				  }
+				]
+			}
+  }
+]
 [>MR7< ask:
 	{text: Do the data contain information from a covered entity or business associate of a covered entity?}
   {answers:
