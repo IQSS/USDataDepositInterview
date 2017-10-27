@@ -6,3 +6,4 @@ Not Sure: Not Sure
 indefinitely: indefinitely
 no: no
 yes: yes
+formal no: None, to the best of my knowledge

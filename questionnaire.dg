@@ -12,52 +12,89 @@ NOT TO BE USED AS A LEGAL ADVICE
   {answers:
     {yes:
       [set: Code=green] <-- Explicit settings of colors is going away soon!
-      [>filter-medical< ask:
-        {text: Do the data contain health or medical information?}
+      [>data-origin< ask:
+        {text: Where was the data collected?}
         {answers:
-          {yes: [call: medical>start]}}
-        ]
-        [>filter-ppra< ask:
-          {text: Was the data collected from students in an elementary or secondary school?}
-          {answers:
-            {yes: [call: ppra>start]}
-          }
-        ]
-        [>filter-ferpa< ask:
-          {text: Do the data contain any information derived from ministry of education data?}
-          {answers:
-            {yes: [call: ferpa>start]}
-          }]
-        [call: gov>Gov1]
-        [call: dppa>DPPA1]
-        [>futures< todo: Future additions go here.]}
-      {no:  [set: Code=blue; Identity=noPersonData] }
-    }]
-  [call: dua]
-  [end]
+          {in the US: [set: Origin += US]}
+          {outside of the US: [set: Origin += nonUS]}
+          {both: [set: Origin += US, nonUS]}
+        }
+      ]
+      [when:
+        { Origin+=US : [call:usLegislation] } ]
+      [when:
+        { Origin+=nonUS : [call:nonUsLegislation] }
+      ]
+    }
+    {no:  [set: Code=blue; Identity=noPersonData] }
+}]
+[call: dua]
+[end]
 
-  [>dua< section:
-    {title: Data Use Agreements}
-    [>dua-ext< todo: Data use agreements]
-    [>duaTimeLimit< ask:
-      {text: Is there any reason why we cannot store the data indefinitely? }
-      {answers:
-        {no: [set: TimeLimit=none] }
-        {yes:
-          [ask:
-            {text:For how long should we keep the data?}
-            {answers:
-              { indefinitely: [set: TimeLimit=none]  }
-              { 50 years:     [set: TimeLimit=_50yr] }
-              { 5 years:      [set: TimeLimit=_5yr]  }
-              { 2 years:      [set: TimeLimit=_2yr]  }
-              { 1 year:       [set: TimeLimit=_1yr]  }
-            }]}}]
+[>usLegislation< section:
+  {title: US legislation}
+  [>filter-medical< ask:
+    {text: Do the data contain health or medical information?}
+    {answers:
+      {yes: [call: medical>start]}}
+  ]
+  [>filter-ppra< ask:
+    {text: Was the data collected from students in an elementary or secondary school?}
+    {answers:
+      {yes: [call: ppra>start]}
+    }
+  ]
+  [>filter-ferpa< ask:
+    {text: Do the data contain any information derived from ministry of education data?}
+    {answers:
+      {yes: [call: ferpa>start]}
+    }]
+  [call: gov>Gov1]
+  [call: dppa>DPPA1]
+  [>futures< todo: Future additions go here.]
+  [>catch-all< ask:
+    {text: Is there any other legislation that applies to this dataset?}
+    {answers:
+      {formal no:}
+      {yes: [set: AdditionalRestrictions += manualInspectionRequired]}
+    }
+  ]
+]
+[>usl-e< end]
+
+[>nonUsLegislation< section:
+  {title: Non-US Legislation}
+  [set: AdditionalRestrictions += manualInspectionRequired]
+  [>nonUsStatement< ask:
+    {text: Please consult with your local data privacy experts to make sure they meet your local requirements.}
+    {answers:
+        {ok:}
+    }
+  ]
+]
+[>nusl-e< end]
+
+[>dua< section:
+  {title: Data Use Agreements}
+  [>dua-ext< todo: Data use agreements]
+  [>duaTimeLimit< ask:
+    {text: Is there any reason why we cannot store the data indefinitely? }
+    {answers:
+      {no: [set: TimeLimit=none] }
+      {yes:
+        [ask:
+          {text:For how long should we keep the data?}
+          {answers:
+            { indefinitely: [set: TimeLimit=none]  }
+            { 50 years:     [set: TimeLimit=_50yr] }
+            { 5 years:      [set: TimeLimit=_5yr]  }
+            { 2 years:      [set: TimeLimit=_2yr]  }
+            { 1 year:       [set: TimeLimit=_1yr]  }
+          }]}}]
   [>duaAdditional< ask:
     {text: Did the data have any restrictions on sharing, e.g. stated in an agreement or policy statement?}
     {answers:
-      {yes: [set: ContractOrPolicy=yes]}
-      {no:  [set: ContractOrPolicy=no]}
+      {yes: [set: AdditionalRestrictions+=contractOrPolicy]}
     }
   ]
 ]

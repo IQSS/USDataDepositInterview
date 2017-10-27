@@ -8,8 +8,8 @@ DepositData [This is the top level tag,
              used (by the tagging system) to describe the properties of the dataset]:
              consists of Code, Handling, Legal, Assertions.
 
-Legal: consists of EducationRecords, <*HIPAA and more*> MedicalRecords, GovernmentRecords, ContractOrPolicy.
-Assertions: consists of DataType, IP, Identity.
+Legal: consists of EducationRecords, <*HIPAA and more*> MedicalRecords, GovernmentRecords, AdditionalRestrictions.
+Assertions: consists of DataType, IP, Identity, Origin.
 
 IP [Assertions pretaining to intellectual property]: TODO.
 
@@ -171,6 +171,8 @@ Census: some of CensusPublished.
 ESRA: some of restricted, public.
 CIPSEA: some of deidentified, identifiable.
 PrivacyAct: some of deidentified, identifiable.
-ContractOrPolicy: one of
-	no  [Use or sharing of the data is not restricted by a contract or policy],
-	yes [Use or sharing of the data is restricted by a contract or policy    ].
+AdditionalRestrictions: some of
+	contractOrPolicy [Use or sharing of the data is restricted by a contract or policy],
+  manualInspectionRequired [A review by an IRB or other expert board is required.].
+Origin: some of US [Contains data collected in the US],
+                nonUS [Contains data collected outside of the US].

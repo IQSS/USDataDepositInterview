@@ -46,7 +46,7 @@
   {answers:
     	{yes:
 				[>MR-Cures-2< ask:
-				  {text: Does the research involve any of the covered activities?}
+				  {text: Does the research involve any of the activities covered under the 21st Century Cures Act?}
 				  {answers:
 						{yes: [>MR-Cures-3< ask:
 						  {text: Does the research collected covered details?}
