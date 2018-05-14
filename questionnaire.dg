@@ -36,21 +36,21 @@ NOT TO BE USED AS A LEGAL ADVICE
   [>filter-medical< ask:
     {text: Do the data contain health or medical information?}
     {answers:
-      {yes: [call: medical>start]}}
+      {yes: [call: medical>main]}}
   ]
   [>filter-ppra< ask:
     {text: Was the data collected from students in an elementary or secondary school?}
     {answers:
-      {yes: [call: ppra>start]}
+      {yes: [call: ppra>main]}
     }
   ]
   [>filter-ferpa< ask:
     {text: Do the data contain any information derived from ministry of education data?}
     {answers:
-      {yes: [call: ferpa>start]}
+      {yes: [call: ferpa>main]}
     }]
-  [call: gov>Gov1]
-  [call: dppa>DPPA1]
+  [call: gov>main]
+  [call: dppa>main]
   [>futures< todo: Future additions go here.]
   [>catch-all< ask:
     {text: Is there any other legislation that applies to this dataset?}
