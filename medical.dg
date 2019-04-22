@@ -2,7 +2,7 @@
 	DISCLAIMER:
 	NOT TO BE USED AS A LEGAL ADVICE
 *>
-[>main< section:
+[-->main<
   {title: Medical Records}
 	[ask:
 		{text: Do the data contain information related to substance abuse diagnosis, referral, or treatment?}
@@ -114,8 +114,7 @@
 	    }}] <-- MR8a
 	  }}] <-- MR8
 	}}] <-- MR7
-	[end]
-]
+--]
 <*
 	DISCLAIMER:
 	NOT TO BE USED AS A LEGAL ADVICE

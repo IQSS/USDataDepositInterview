@@ -2,7 +2,7 @@
 	DISCLAIMER:
 	NOT TO BE USED AS A LEGAL ADVICE
 *>
-[>main< section:
+[-->main<
   {title: PPRA}
   [ask:
     {text: Do the data contain information collected from students in a survey or assessment concerning any of the covered categories?}
@@ -51,7 +51,7 @@
             {no: [reject: Possible PPRA violation due to school’s failure to provide parents with the opportunity to opt out of the data collection]}
             {yes: [set: PPRA+=optOutProvided]}}]
   }}]
-]
+--]
 <*
 	DISCLAIMER:
 	NOT TO BE USED AS A LEGAL ADVICE

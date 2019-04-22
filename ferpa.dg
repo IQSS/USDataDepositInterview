@@ -2,7 +2,7 @@
 	DISCLAIMER:
 	NOT TO BE USED AS A LEGAL ADVICE
 *>
-[>main< section:
+[-->main<
   {title: FERPA}
   [ask:
     {text: Do the data contain any information derived from institutional records directly related to a student?}
@@ -63,8 +63,7 @@
               [reject: FERPA violation by disclosing data that should not be disclosed.]
         }}] <-- ferpa15
   }}] <-- ferpa12
-  [end]
-]
+--]
 <*
 	DISCLAIMER:
 	NOT TO BE USED AS A LEGAL ADVICE

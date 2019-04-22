@@ -2,7 +2,7 @@
 	DISCLAIMER:
 	NOT TO BE USED AS A LEGAL ADVICE
 *>
-[>main< section:
+[-->main<
   {title: DPPA-related issues.}
 	[>DPPA1< ask:
 		{text: Do the data contain personal information obtained from a state department of motor vehicles?}
@@ -74,7 +74,7 @@
 	              														[reject: possible violation of the DPPA: depositor has not cited one of the required or permissible uses for disclosure.]}
 	                      }]}}]}}] <-- DPPA6
 	}}]}}]}}]}}] <-- DPPA1
-]
+--]
 <*
 	DISCLAIMER:
 	NOT TO BE USED AS A LEGAL ADVICE

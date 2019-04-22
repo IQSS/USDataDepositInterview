@@ -31,7 +31,7 @@ NOT TO BE USED AS A LEGAL ADVICE
 [call: dua]
 [end]
 
-[>usLegislation< section:
+[-->usLegislation<
   {title: US legislation}
   [>filter-medical< ask:
     {text: Do the data contain health or medical information?}
@@ -59,10 +59,9 @@ NOT TO BE USED AS A LEGAL ADVICE
       {yes: [set: AdditionalRestrictions += manualInspectionRequired]}
     }
   ]
-]
-[>usl-e< end]
+--]
 
-[>nonUsLegislation< section:
+[-->nonUsLegislation<
   {title: Non-US Legislation}
   [set: AdditionalRestrictions += manualInspectionRequired]
   [>nonUsStatement< ask:
@@ -71,10 +70,9 @@ NOT TO BE USED AS A LEGAL ADVICE
         {ok:}
     }
   ]
-]
-[>nusl-e< end]
+--]
 
-[>dua< section:
+[-->dua<
   {title: Data Use Agreements}
   [>dua-ext< todo: Data use agreements]
   [>duaTimeLimit< ask:
@@ -97,8 +95,7 @@ NOT TO BE USED AS A LEGAL ADVICE
       {yes: [set: AdditionalRestrictions+=contractOrPolicy]}
     }
   ]
-]
-[end]
+--]
 <*
 DISCLAIMER:
 NOT TO BE USED AS A LEGAL ADVICE

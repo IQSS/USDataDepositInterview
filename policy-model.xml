@@ -1,6 +1,6 @@
 <policy-model>
   <title>Data Deposit Interview</title>
-  <version>0.6</version>
+  <version>0.6.1</version>
   <authors>
     <group url="https://privacytools.seas.harvard.edu/">
       <name>Privacy Tools for Sharing Research Data</name>
